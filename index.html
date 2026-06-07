@@ -11,46 +11,28 @@
 <body>
 
     <header>
+  <h1>Bitsilver Trading Dashboard</h1>
+</header>
 
-        <h1>Trading Dashboard</h1>
+<div class="dashboard">
 
-    </header>
+  <div class="card">
+    <h2>Bitcoin</h2>
+    <p id="btc-price">Loading...</p>
+  </div>
 
-    <div class="container">
+  <div class="card">
+    <h2>Ethereum</h2>
+    <p id="eth-price">Loading...</p>
+  </div>
 
-        <div class="card">
+  <div class="card">
+    <h2>Portfolio</h2>
+    <p>$100,000 Demo Balance</p>
+  </div>
 
-            <h2>BTCUSDT</h2>
+</div>
 
-            <p id="btc-price">Loading...</p>
-
-        </div>
-
-        <div class="card">
-
-            <h2>Portfolio</h2>
-
-            <pre id="portfolio"></pre>
-
-        </div>
-
-        <div class="card">
-
-            <h2>Buy Order</h2>
-
-            <input id="symbol" value="BTCUSDT">
-
-            <input id="quantity" type="number" value="1">
-
-            <input id="price" type="number">
-
-            <button onclick="buy()">Buy</button>
-
-        </div>
-
-    </div>
-
-    <script src="index.js"></script>
-
+<script src="index.js"></script>
 </body>
 </html>
