@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Trading Dashboard</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Trading Dashboard</h1>
+
+    </header>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>BTCUSDT</h2>
+
+            <p id="btc-price">Loading...</p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Portfolio</h2>
+
+            <pre id="portfolio"></pre>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Buy Order</h2>
+
+            <input id="symbol" value="BTCUSDT">
+
+            <input id="quantity" type="number" value="1">
+
+            <input id="price" type="number">
+
+            <button onclick="buy()">Buy</button>
+
+        </div>
+
+    </div>
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
