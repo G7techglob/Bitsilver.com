@@ -1,62 +1,24 @@
-const API = "http://localhost:5000";
+async function loadPrices(){
 
-async function loadBTC() {
-
-    const response = await fetch(
-        `${API}/api/crypto/BTCUSDT`
+    const btc = await fetch(
+      "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
     );
 
-    const data = await response.json();
+    const btcData = await btc.json();
 
-    document.getElementById(
-        "btc-price"
-    ).innerText = "$" + data.price;
-}
+    document.getElementById("btc-price").innerText =
+        "$" + Number(btcData.price).toLocaleString();
 
-async function loadPortfolio() {
-
-    const response = await fetch(
-        `${API}/api/portfolio`
+    const eth = await fetch(
+      "https://api.binance.com/api/v3/ticker/price?symbol=ETHUSDT"
     );
 
-    const data = await response.json();
+    const ethData = await eth.json();
 
-    document.getElementById(
-        "portfolio"
-    ).innerText =
-        JSON.stringify(data, null, 2);
+    document.getElementById("eth-price").innerText =
+        "$" + Number(ethData.price).toLocaleString();
 }
 
-async function buy() {
+loadPrices();
 
-    const symbol =
-        document.getElementById("symbol").value;
-
-    const quantity =
-        document.getElementById("quantity").value;
-
-    const price =
-        document.getElementById("price").value;
-
-    await fetch(`${API}/api/buy`, {
-
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-            symbol,
-            quantity,
-            price
-        })
-    });
-
-    loadPortfolio();
-}
-
-loadBTC();
-loadPortfolio();
-
-setInterval(loadBTC, 5000);
+setInterval(loadPrices,5000);
